@@ -17,18 +17,38 @@
                 </div>
             </div>
         </div>
-        <div class="detail">
-            <div class="content">
-                <div class="left flex items-center justify-evenly gap-2 border">
-                <img src="/images/kuchi.png" alt="" class="size-30 drop-shadow-md rounded-sm">
-                <div class="information flex flex-col h-full justify-evenly gap-2">
-                    <p class="font-bold text-2xl text-blue-900 font-[Outfit]">KUCHI HOTEL</p>
-                    <div class="more flex flex-col gap-2">
-                        <p>Oh my God Beautiful amazing</p>
-                        <div class="rating flex items-center gap-2 justify-end text-yellow-400">
-                            @for($i = 0; $i <5; $i++)
-                            <i class="fa-solid fa-star"></i>
-                            @endfor
+        <div class="detail w-[90%] self-center m-5">
+            <div class="content grid grid-cols-2">
+                <div class="left flex items-center justify-evenly gap-2 w-full">
+                    <img src="/images/kuchi.png" alt="" class="size-30 drop-shadow-md rounded-sm">
+                    <div class="information flex flex-col h-full gap-2">
+                        <p class="font-bold text-2xl text-blue-900 font-[Outfit]">KUCHI HOTEL</p>
+                        <div class="more flex flex-col gap-2">
+                            <p>Oh my God Beautiful amazing</p>
+                            <div class="rating flex items-center gap-2 justify-end text-yellow-400">
+                                @for($i = 0; $i <5; $i++)
+                                <i class="fa-solid fa-star"></i>
+                                @endfor
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right flex flex-col gap-3">
+                    <p class="font-medium font-[Outfit] text-xl text-blue-900">About Us</p>
+                    <div class="content grid grid-cols-2 gap-2">
+                        <div class="location flex items-center gap-4">
+                            <i class="fa-solid fa-location-dot text-blue-900 text-2xl"></i>
+                            <p class="text-sm">Jl. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, quasi.</p>
+                        </div>
+                        <div class="info flex flex-col gap-3 p-4 bg-white drop-shadow-sm w-[90%]">
+                            <div class="phone flex items-center justify-between w-full">
+                                <i class="fa-solid text-blue-900 fa-phone"></i>
+                                <p>+62-81234-5678</p>
+                            </div>
+                            <div class="email flex items-center gap-3 justify-between w-full">
+                                <i class="fa-solid text-blue-900 fa-envelope"></i>
+                                <p>Kuchihotels@gmail.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
