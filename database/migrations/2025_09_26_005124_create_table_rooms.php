@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('type', 100);
+            $table->string('image', 100);
             $table->decimal('price', 8, 2);
             $table->enum('status', ['available', 'none']);
             $table->json('detail')->nullable();
