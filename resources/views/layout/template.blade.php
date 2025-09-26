@@ -14,8 +14,11 @@
 <body>
     <main class="flex flex-col min-h-screen font-[Poppins] bg-white text-black">
         @include('layout.navbar')
-            @yield('content')
+            <div class="content mt-20 mb-5">
+                @yield('content')
+            </div>
         @include('layout.footer')
     </main>
+    <script src="/Scripts/script.js"></script>
 </body>
 </html>
