@@ -27,7 +27,8 @@ Route::get('/', function () {
             ]
         ]
     ];
-    return view('Home.Homepage', $data);
+    return view('pages.Homepage', $data);
 });
 
-Route::get('/rooms', [RoomsController::class, 'showRooms']);
+Route::get('/rooms', [RoomsController::class, 'Rooms']);
+Route::get('/details/{id}', [RoomsController::class, 'RoomDetails']);

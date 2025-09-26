@@ -7,7 +7,7 @@
             <div class="flex flex-col gap-3 p-3 rounded-sm bg-white drop-shadow-sm">
                 <!-- <img src={{ $r['image']}} alt="" class="w-full h-80"> -->
                  <div class="w-full h-80 max-sm:h-50 flex justify-end rounded-sm" style= "background: url(<?= $r['image'];?>) center center / cover no-repeat;">
-                    <button class="btn bg-white/50 drop-shadow-lg border-none self-end m-5 max-sm:hidden">More Info</button>
+                    <a href="/details/{{ $r['id'] }}" class="btn bg-white/50 drop-shadow-lg border-none self-end m-5 max-sm:hidden">More Info</a>
                  </div>
                 <p class="text-blue-800 text-xl max-sm:text-lg font-light h-12 justify-center flex items-center">{{ $r['type'] }}</p>
                 <div class="flex max-sm:flex-col gap-3 items-center justify-between">

@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="right flex flex-col gap-3">
-                    <p class="font-medium font-[Outfit] text-xl text-blue-900">About Us</p>
+                    <p class="font-medium font-[Outfit] text-xl text-blue-900 self-end">ABOUT US</p>
                     <div class="content grid sm:grid-cols-2 gap-2">
                         <div class="location flex items-center gap-4">
                             <i class="fa-solid fa-location-dot text-blue-900 text-2xl"></i>
@@ -91,8 +91,8 @@
             <div class="bottom grid md:grid-cols-3 gap-3">
                 @foreach ($facilities as $f)
                     <div class="flex flex-col gap-3 p-3 rounded-sm bg-white drop-shadow-md">
-                        <img src={{ $f['image'] }} alt="" class="w-full h-50">
-                        <p class="text-xl font-semibold text-blue-900 h-12">{{ $f['title'] }}</p>
+                        <img src={{ $f['image'] }} alt="" class="w-full h-60">
+                        <p class="text-xl font-semibold text-blue-900 h-12 flex items-center">{{ $f['title'] }}</p>
                         <p class="text-justify">{{ $f['description'] }}</p>
                         <div class="flex max-lg:flex-col items-center justify-between">
                             <p class="font-semibold">Operational:</p>
