@@ -1,34 +1,17 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoomsController;
+use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $data = [
-        'title' => 'Kuchi Hotel',
-        'facilities' => [
-            'Restaurant' => [
-                'image' => 'images/bar.jpg',
-                'title' => 'International Restaurant',
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, optio',
-                'operational' => '6.00 AM - 10.00 AM'
-            ],
-            'Healthcare' => [
-                'image' => 'images/sauna.jpg',
-                'title' => 'Relaxing Sauna',
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, optio',
-                'operational' => '8.00 AM - 4.00 PM'
-            ],
-            'Gymnasium' => [
-                'image' => 'images/gym.jpg',
-                'title' => 'Fitness Center',
-                'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, optio',
-                'operational' => '7.00 AM - 9.00 PM'
-            ]
-        ]
-    ];
-    return view('pages.Homepage', $data);
-});
+Route::get('/', [HomeController::class, 'Home']);
+// Route::get('/rooms', [RoomsController::class, 'Rooms']);
+// Route::get('/details/{id}', [RoomsController::class, 'RoomDetails']);
 
-Route::get('/rooms', [RoomsController::class, 'Rooms']);
-Route::get('/details/{id}', [RoomsController::class, 'RoomDetails']);
+//kasih group
+Route::prefix('rooms')->group(function(){
+    Route::get('', [RoomsController::class, 'Rooms']);
+    Route::get('/details/{id}', [RoomsController::class, 'RoomDetails']);
+});
+Route::get('/services', [ServicesController::class, 'Services']);
