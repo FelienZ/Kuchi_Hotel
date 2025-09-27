@@ -81,7 +81,7 @@
 
         <div class="facilities flex flex-col gap-4 w-[90%] self-center my-5">
             <div class="top flex max-sm:flex-col gap-3 items-center justify-between">
-                <p class="text-2xl text-blue-900">FASILITAS</p>
+                <p class="text-2xl text-blue-900">OUR SERVICES</p>
                 <div class="features flex items-center gap-3">
                     <p class="badge badge-outline badge-neutral rounded-none">Restaurant</p>
                     <p class="badge badge-outline badge-neutral rounded-none">Healthcare</p>

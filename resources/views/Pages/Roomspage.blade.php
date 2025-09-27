@@ -1,6 +1,7 @@
 @extends('layout.template')
 @section('content')
 <section class="bg-white min-h-screen w-full flex flex-col p-5">
+    @if (count($rooms) > 0)
     <p class="text-2xl font-light text-blue-800 text-center">ROOMS & SUITE</p>
     <div class="grid sm:grid-cols-2 w-full lg:w-[85%] place-self-center gap-4 m-5 bg-white">
         @foreach ($rooms as $r)
@@ -18,5 +19,8 @@
             </div>
         @endforeach
     </div>
+    @else
+    <p class="h-screen grid place-items-center bg-white drop-shadow-sm">Ruangan Sedang Tidak Tersedia!</p>
+    @endif
 </section>
 @endsection
