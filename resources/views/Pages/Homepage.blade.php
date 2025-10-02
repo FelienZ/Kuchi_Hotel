@@ -3,8 +3,8 @@
     <section class="flex flex-col gap-10 min-h-screen">
         <div class="bg-white drop-shadow-md rounded-sm grid sm:grid-cols-2 gap-3 p-3 h-[80vh] m-5">
             <div class="image grid grid-rows-2 gap-4">
-                <div class="image1 rounded-sm bg-white p-3 drop-shadow-md" style="background: url('/images/bar.jpg') center center / cover no-repeat;"></div>
-                <div class="image2 flex flex-col justify-end text-white gap-3 rounded-sm bg-white p-3 drop-shadow-md" style="background: url('/images/pool.jpg') center center / cover no-repeat;">
+                <div class="image1 rounded-sm bg-white p-3 drop-shadow-md" style="background: url('{{ asset('images/bar.jpg') }}')  center center / cover no-repeat;"></div>
+                <div class="image2 flex flex-col justify-end text-white gap-3 rounded-sm bg-white p-3 drop-shadow-md" style="background: url('{{ asset('images/pool.jpg') }}')  center center / cover no-repeat;">
                     <div class="text shadow-lg ">
                         <p class="font-bold drop-shadow-sm">Welcome to Kuchi Hotel!</p>
                         <p class="drop-shadow-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class=" grid">
-                <div class="image1 justify-end text-right text-white flex flex-col rounded-sm bg-white p-3 drop-shadow-md" style="background: url('/images/room1.jpg') center center / cover no-repeat;">
+                <div class="image1 justify-end text-right text-white flex flex-col rounded-sm bg-white p-3 drop-shadow-md" style="background: url('{{ asset('images/room1.jpg') }}') center center / cover no-repeat;">
                     <p class="font-bold">KUCHI HOTEL</p>
                 </div>
             </div>
@@ -20,7 +20,7 @@
         <div class="detail self-center w-[80%]">
             <div class="content grid gap-4 sm:grid-cols-2">
                 <div class="left flex items-center justify-evenly gap-2 w-full">
-                    <img src="/images/kuchi.png" alt="" class="size-30 drop-shadow-md rounded-sm">
+                    <img src="{{asset('images/kuchi.png')}}" alt="" class="size-30 drop-shadow-md rounded-sm">
                     <div class="information flex flex-col h-full gap-2">
                         <p class="font-bold text-2xl text-blue-900 font-[Outfit] max-sm:text-sm">KUCHI HOTEL</p>
                         <div class="more flex flex-col gap-2">
@@ -56,19 +56,24 @@
         </div>
 
         <div class="order flex max-sm:flex-col justify-center items-center bg-white drop-shadow-sm rounded-sm p-4 w-[80%] self-center">
-            <p class="font-bold text-blue-900 w-[20%] justify-end">Book Now</p>
-            <form action="" class="flex max-sm:grid items-center gap-3 w-full">
+            <p class="font-bold text-blue-900 w-[20%] justify-end sm:hidden">Book Now!</p>
+            <form action="/home/booking" method="post" class="flex max-sm:grid items-center gap-5 w-full">
+                @csrf
+                <div class="bookNow flex flex-col items-center gap-2 w-full">
+                    <p class="font-bold text-blue-900">Book Now!</p>
+                    <button class="btn bg-blue-900 border-none rounded-full w-fit text-white">Check-In</button>
+                </div>
                 <div class="check-in flex flex-col gap-2 w-full">
                     <p>check-in: </p>
-                    <input type="date" class="input bg-blue-900 w-full text-white">
+                    <input type="date" name="cekin" class="input bg-blue-900 w-full text-white">
                 </div>
                 <div class="check-out flex flex-col gap-2 w-full">
                     <p>check-out: </p>
-                    <input type="date" class="input bg-blue-900 w-full text-white">
+                    <input type="date" name="cekout" class="input bg-blue-900 w-full text-white">
                 </div>
                 <div class="type flex flex-col gap-2 w-full">
                     <p>Tipe: </p>
-                    <select name="type" class="select bg-blue-900 w-full text-white">
+                    <select name="roomtype" class="select bg-blue-900 w-full text-white">
                         <option value="" disabled hidden selected>Tipe Kamar</option>
                         <option value="king">King's Suites</option>
                         <option value="ultra">Ultra Suites</option>

@@ -33,4 +33,9 @@ class HomeController extends Controller
     ];
     return view('pages.homepage', $data);
     }
+
+    public function Booking(Request $request){
+        $data = $request->all();
+        dd($data);
+    }
 }

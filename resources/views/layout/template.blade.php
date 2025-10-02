@@ -19,6 +19,6 @@
             </div>
         @include('layout.footer')
     </main>
-    <script src="/Scripts/script.js"></script>
+    <script src="{{ asset('/Scripts/script.js') }}"></script>
 </body>
 </html>

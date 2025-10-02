@@ -5,7 +5,9 @@ use App\Http\Controllers\RoomsController;
 use App\Http\Controllers\ServicesController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', [HomeController::class, 'Home']);
+Route::post('/home/booking', [HomeController::class, 'Booking']);
 // Route::get('/rooms', [RoomsController::class, 'Rooms']);
 // Route::get('/details/{id}', [RoomsController::class, 'RoomDetails']);
 
