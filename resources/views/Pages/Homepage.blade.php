@@ -94,16 +94,18 @@
                 </div>
             </div>
             <div class="bottom grid md:grid-cols-3 gap-3">
-                @foreach ($facilities as $f)
-                    <div class="flex flex-col gap-3 p-3 rounded-sm bg-white drop-shadow-md">
+                @foreach ($facilities as $key => $f)
+                    @if ($key < 3)
+                    <a href={{url('/services/details/'.$f['id'])}} class="flex flex-col gap-3 p-3 rounded-sm bg-white drop-shadow-md">
                         <img src={{ $f['image'] }} alt="" class="w-full h-60">
                         <p class="text-xl font-semibold text-blue-900 h-12 flex items-center">{{ $f['title'] }}</p>
-                        <p class="text-justify">{{ $f['description'] }}</p>
+                        <p class="text-justify">{{ $f['descriptions'] }}</p>
                         <div class="flex max-lg:flex-col items-center justify-between">
                             <p class="font-semibold">Operational:</p>
-                            <p class="badge badge-outline badge-neutral rounded-sm">{{ $f['operational'] }}</p>
+                            <p class="badge badge-outline badge-neutral rounded-sm">{{ $f['open'] }} - {{$f['closed']}}</p>
                         </div>
-                    </div>
+                    </a>
+                    @endif
                 @endforeach
             </div>
         </div>
