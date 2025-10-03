@@ -18,5 +18,16 @@
             <a href="{{url('register')}}" class="badge badge-outline">Register</a>
         </li>
     </ul>
-    <a href={{url('login')}} class="btn bg-white/50 border-none rounded-full max-sm:hidden"><i class="fa-solid fa-user text-sm"></i> Login</a>
+    @auth
+    <form action={{url('/logout')}} method="post" class="max-sm:hidden">
+        @csrf
+        <x-primary-button> {{ __('Logout') }} <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> </x-primary-button>
+    </form>
+    @endauth
+    @guest
+    <form action={{url('/login')}} class="max-sm:hidden">
+        @csrf
+        <x-primary-button> {{ __('Login') }} <i class="fa-solid fa-arrow-right-from-bracket"></i> </x-primary-button>
+    </form>
+    @endguest
 </div>

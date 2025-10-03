@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'Home']);
-Route::post('/home/booking', [HomeController::class, 'Booking']);
 // Route::get('/rooms', [RoomsController::class, 'Rooms']);
 // Route::get('/details/{id}', [RoomsController::class, 'RoomDetails']);
 
@@ -25,7 +24,8 @@ Route::prefix('services')->group(function(){
 
 Route::middleware('auth')->group(function(){
     Route::prefix('booking')->group(function(){
-        Route::get('', [BookingController::class, 'info']);
+        Route::get('/create/{id}', [BookingController::class, 'info']);
+        Route::get('/confirm/{id}', [BookingController::class, 'confirm']);
     });
 });
 

@@ -15,7 +15,7 @@
                     <p class="text-blue-800 text-xl max-sm:text-sm text-nowrap">Rp. {{ $r['price']}}</p>
                     <p class="badge badge-outline badge-success max-sm:text-sm">{{ $r['status'] }}</p>
                 </div>
-                <a href={{url('/booking')}} class="btn bg-blue-800 border-none font-medium">Check-In Now !</a>
+                <a href={{url('/booking/create/'.$r['id'])}} class="btn bg-blue-800 border-none font-medium">Check-In Now !</a>
             </div>
         @endforeach
     </div>
