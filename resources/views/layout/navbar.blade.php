@@ -14,9 +14,9 @@
         <li><a href="{{url('/rooms') }}">Rooms</a></li>
         <li><a href="{{url('/services')}}">Services</a></li>
         <li class="flex items-center gap-3">
-            <a href="{{url('#')}}" class="badge badge-outline">Login</a>
-            <a href="{{url('#')}}" class="badge badge-outline">Register</a>
+            <a href="{{url('login')}}" class="badge badge-outline">Login</a>
+            <a href="{{url('register')}}" class="badge badge-outline">Register</a>
         </li>
     </ul>
-    <button class="btn bg-white/50 border-none rounded-full max-sm:hidden"><i class="fa-solid fa-user text-sm"></i> Login</button>
+    <a href={{url('login')}} class="btn bg-white/50 border-none rounded-full max-sm:hidden"><i class="fa-solid fa-user text-sm"></i> Login</a>
 </div>
