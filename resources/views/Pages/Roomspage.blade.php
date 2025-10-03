@@ -10,7 +10,7 @@
                  <div class="w-full h-80 max-sm:h-50 flex justify-end rounded-sm" style= "background: url('{{asset($r['image'])}}') center center / cover no-repeat;">
                     <a href="/rooms/details/{{ $r['id'] }}" class="btn bg-white/50 drop-shadow-lg border-none self-end m-5 max-sm:hidden">More Info</a>
                  </div>
-                <p class="text-blue-800 text-xl max-sm:text-lg font-light h-12 justify-center flex items-center">{{ $r['type'] }}</p>
+                <a href="/rooms/details/{{ $r['id'] }}" class="text-blue-800 text-xl max-sm:text-lg font-light h-12 self-center">{{ $r['type'] }}</a>
                 <div class="flex max-sm:flex-col gap-3 items-center justify-between">
                     <p class="text-blue-800 text-xl max-sm:text-sm text-nowrap">Rp. {{ $r['price']}}</p>
                     <p class="badge badge-outline badge-success max-sm:text-sm">{{ $r['status'] }}</p>

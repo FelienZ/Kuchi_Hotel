@@ -56,11 +56,11 @@
         </div>
 
         <div class="order flex max-sm:flex-col justify-center items-center bg-white drop-shadow-sm rounded-sm p-4 w-[80%] self-center">
-            <p class="font-bold text-blue-900 w-[20%] justify-end sm:hidden">Book Now!</p>
+            <p class="font-bold text-blue-900 sm:hidden text-nowrap">Book Now!</p>
             <form action="/home/booking" method="post" class="flex max-sm:grid items-center gap-5 w-full">
                 @csrf
                 <div class="bookNow flex flex-col items-center gap-2 w-full">
-                    <p class="font-bold text-blue-900">Book Now!</p>
+                    <p class="font-bold text-blue-900 max-sm:hidden text-nowrap">Book Now!</p>
                     <button class="btn bg-blue-900 border-none rounded-full w-fit text-white">Check-In</button>
                 </div>
                 <div class="check-in flex flex-col gap-2 w-full">
