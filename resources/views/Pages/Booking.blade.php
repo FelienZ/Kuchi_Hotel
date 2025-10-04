@@ -1,6 +1,6 @@
 @extends('layout.template')
 @section('content')
-<section class="min-h-screen place-content-center place-items-center">
+<section id="parentElement" class="min-h-screen place-content-center place-items-center">
     <form action={{url('booking/confirm/'.$rooms['id'])}} class="flex flex-col bg-white drop-shadow-sm p-4 md:w-[70%] gap-4 m-5">
         @csrf
         <img src={{asset($rooms['image'])}} alt="gambar-{{$rooms['type']}}" class="w-full h-110">
@@ -8,6 +8,7 @@
             <div class="flex flex-col gap-3">
                 <p class="font-bold sm:text-xl text-blue-900">{{$rooms['type']}}</p>
                 <p class="text-sm">Rp. {{$rooms['price']}}/night</p>
+                <p class="text-sm badge badge-outline {{$rooms['status'] == 'available' ? 'badge-success' : 'badge-error'}}">{{$rooms['status']}}</p>
             </div>
             <button type="submit" class="btn border-none bg-blue-900 rounded-full">Book Now</button>
         </div>
@@ -52,5 +53,10 @@
                 @endforeach
             </ul>
     </form>
+    @if (session('message'))
+            <div class="sessionAlert alert alert-error z-40 text-white fixed inset-0 place-self-end m-4">
+                <p>{{session('message')}}</p>
+            </div>
+    @endif
 </section>
 @endsection

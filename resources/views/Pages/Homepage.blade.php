@@ -1,6 +1,6 @@
 @extends('layout.template')
 @section('content')
-    <section class="flex flex-col gap-10 min-h-screen">
+    <section id="parentElement" class="flex flex-col gap-10 min-h-screen">
         <div class="bg-white drop-shadow-md rounded-sm grid sm:grid-cols-2 gap-3 p-3 h-[80vh] m-5">
             <div class="image grid grid-rows-2 gap-4">
                 <div class="image1 rounded-sm bg-white p-3 drop-shadow-md" style="background: url('{{ asset('images/bar.jpg') }}')  center center / cover no-repeat;"></div>
@@ -57,7 +57,7 @@
 
         <div class="order flex max-sm:flex-col justify-center items-center bg-white drop-shadow-sm rounded-sm p-4 w-[80%] self-center">
             <p class="font-bold text-blue-900 sm:hidden text-nowrap">Book Now!</p>
-            <form action={{url('booking/confirm/'.)}} method="post" class="flex max-sm:grid items-center gap-5 w-full">
+            <form action={{url('booking/matchData')}} method="POST" class="flex max-sm:grid items-center gap-5 w-full">
                 @csrf
                 <div class="bookNow flex flex-col items-center gap-2 w-full">
                     <p class="font-bold text-blue-900 max-sm:hidden text-nowrap">Book Now!</p>
@@ -75,10 +75,10 @@
                     <p>Tipe: </p>
                     <select name="roomtype" class="select bg-blue-900 w-full text-white">
                         <option value="" disabled hidden selected>Tipe Kamar</option>
-                        <option value="king">King's Suites</option>
-                        <option value="ultra">Ultra Suites</option>
-                        <option value="deluxe">Deluxe Suites</option>
-                        <option value="express">Express Suites</option>
+                        <option value="King's Rooms">King's Suites</option>
+                        <option value="Ultra Lux Rooms">Ultra Suites</option>
+                        <option value="Deluxe Rooms">Deluxe Suites</option>
+                        <option value="Express Rooms">Express Suites</option>
                     </select>
                 </div>
             </form>
@@ -109,5 +109,10 @@
                 @endforeach
             </div>
         </div>
+        @if (session('message'))
+            <div class="sessionAlert alert alert-error z-40 text-white fixed inset-0 place-self-end m-4">
+                <p>{{session('message')}}</p>
+            </div>
+        @endif
     </section>
 @endsection
