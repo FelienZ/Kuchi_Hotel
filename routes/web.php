@@ -25,6 +25,7 @@ Route::prefix('services')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::prefix('booking')->group(function(){
         Route::post('/matchData', [BookingController::class, 'matchData']);
+        Route::post('/complete/{id}', [BookingController::class, 'postReservation']);
         Route::get('/create/{id}', [BookingController::class, 'info']);
         Route::get('/confirm/{id}', [BookingController::class, 'confirm']);
     });

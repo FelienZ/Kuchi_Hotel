@@ -65,15 +65,15 @@
                 </div>
                 <div class="check-in flex flex-col gap-2 w-full">
                     <p>check-in: </p>
-                    <input type="date" name="cekin" class="input bg-blue-900 w-full text-white">
+                    <input type="date" name="cekin" value="{{old('cekin')}}"  class="input bg-blue-900 w-full text-white">
                 </div>
                 <div class="check-out flex flex-col gap-2 w-full">
                     <p>check-out: </p>
-                    <input type="date" name="cekout" class="input bg-blue-900 w-full text-white">
+                    <input type="date" name="cekout" value="{{old('cekout')}}"  class="input bg-blue-900 w-full text-white">
                 </div>
                 <div class="type flex flex-col gap-2 w-full">
                     <p>Tipe: </p>
-                    <select name="roomtype" class="select bg-blue-900 w-full text-white">
+                    <select name="roomtype" value="{{old('roomtype')}}"  class="select bg-blue-900 w-full text-white">
                         <option value="" disabled hidden selected>Tipe Kamar</option>
                         <option value="King's Rooms">King's Suites</option>
                         <option value="Ultra Lux Rooms">Ultra Suites</option>
@@ -113,6 +113,10 @@
             <div class="sessionAlert alert alert-error z-40 text-white fixed inset-0 place-self-end m-4">
                 <p>{{session('message')}}</p>
             </div>
+        @elseif (session('success'))
         @endif
+            <div class="sessionAlert alert alert-success z-40 text-white fixed inset-0 place-self-end m-4">
+                <p>{{session('success')}}</p>
+            </div>
     </section>
 @endsection
