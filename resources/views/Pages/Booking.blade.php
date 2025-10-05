@@ -1,7 +1,7 @@
 @extends('layout.template')
 @section('content')
 <section id="parentElement" class="min-h-screen place-content-center place-items-center">
-    <form action={{url('booking/confirm/'.$rooms['id'])}} class="flex flex-col bg-white drop-shadow-sm rounded-sm p-4 md:w-[70%] gap-4 m-5">
+    <form action={{url('booking/confirm/'.$rooms['id'])}} class="flex flex-col bg-white drop-shadow-sm rounded-sm p-4 md:w-[60%] gap-4 m-5">
         @csrf
         <img src={{asset($rooms['image'])}} alt="gambar-{{$rooms['type']}}" class="w-full h-110">
         <div class="flex items-center justify-between">

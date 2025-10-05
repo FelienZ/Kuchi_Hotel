@@ -12,7 +12,7 @@
                         <p>Reservasi: </p>
                         <p>Rp. {{ $info['price'] }}/malam</p>
                     </div>
-                    <button class="btn border-none bg-blue-900 text-white">Pesan Sekarang!</button>
+                    <a href={{url('booking/create/'.$info['id'])}} class="btn border-none bg-blue-900 text-white">Pesan Sekarang!</a>
                 </div>
             </div>
             @php

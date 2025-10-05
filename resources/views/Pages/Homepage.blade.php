@@ -114,9 +114,9 @@
                 <p>{{session('message')}}</p>
             </div>
         @elseif (session('success'))
-        @endif
             <div class="sessionAlert alert alert-success z-40 text-white fixed inset-0 place-self-end m-4">
                 <p>{{session('success')}}</p>
             </div>
+        @endif
     </section>
 @endsection
