@@ -65,6 +65,8 @@ class BookingController extends Controller
         return view('pages.confirmBooking', $data);
     }
     public function postReservation($id, Request $request){
+        $matchRoom = RoomsModel::find($id)->toArray();
+        $newStock = $matchRoom['stock']--;
         $data = [
             'id' => Str::uuid(),
             'room_id' => $id,
@@ -72,14 +74,16 @@ class BookingController extends Controller
             'durasi' => Carbon::parse($request->input('cekin'))->diffInDays(Carbon::parse($request->input(key: 'cekout'))),
             'sewa' => $request->input('price')
         ];
-        $matchRoom = RoomsModel::find($id)->toArray();
         if($data['durasi'] < 1){
             return back()->withInput()->with('message', 'Reservasi minimal 1 x 24 Jam');
         }
         if($data['sewa'] != ($matchRoom['price'] * $data['durasi'])){
             return back()->withInput()->with('message', 'Data Invalid!');
         }
-        ReservationsModel::insert($data);
+        $matchRoom['stock'] = $newStock;
+        // dd($matchRoom);
+        RoomsModel::findOrFail($id)->update(['stock' => $newStock]);
+        ReservationsModel::create($data);
         return redirect()->to('/')->with('success', 'Selamat Anda Berhasil Memesan!');
     }
 }

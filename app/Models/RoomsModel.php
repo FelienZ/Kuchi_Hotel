@@ -13,7 +13,7 @@ class RoomsModel extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = [
-        'type', 'price', 'status', 'detail', 'image'
+        'type', 'price', 'status', 'detail', 'image', 'stock'
     ];
     protected $casts = [
         'detail' => 'array'

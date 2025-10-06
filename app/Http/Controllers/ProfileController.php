@@ -16,9 +16,13 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $data = [
+            'title' => 'Profile Page',
+            'user' => $request->user()->toArray(),
+            'reservations' => $request->user()->showReservations()->with('showRoom')->latest()->get()->toArray()
+        ];
+        // dd($data['reservations'][0]);
+        return view('pages.profilepage', $data);
     }
 
     /**

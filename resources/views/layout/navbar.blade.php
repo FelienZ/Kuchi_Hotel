@@ -19,8 +19,9 @@
         </li>
     </ul>
     @auth
-    <form action={{url('/logout')}} method="post" class="max-sm:hidden">
+    <form action={{url('/logout')}} method="post" class="max-sm:hidden flex gap-2 items-center">
         @csrf
+        <a href={{url('profile')}} class="flex items-center size-10 bg-blue-900 btn border-none text-white rounded-full"><i class="fa-solid fa-user"></i></a>
         <x-primary-button> {{ __('Logout') }} <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> </x-primary-button>
     </form>
     @endauth
