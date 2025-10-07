@@ -66,7 +66,6 @@ class BookingController extends Controller
     }
     public function postReservation($id, Request $request){
         $matchRoom = RoomsModel::find($id)->toArray();
-        $newStock = $matchRoom['stock']--;
         $data = [
             'id' => Str::uuid(),
             'room_id' => $id,
@@ -80,6 +79,7 @@ class BookingController extends Controller
         if($data['sewa'] != ($matchRoom['price'] * $data['durasi'])){
             return back()->withInput()->with('message', 'Data Invalid!');
         }
+        $newStock = $matchRoom['stock']--;
         $matchRoom['stock'] = $newStock;
         // dd($matchRoom);
         RoomsModel::findOrFail($id)->update(['stock' => $newStock]);

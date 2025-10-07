@@ -12,8 +12,20 @@
                     <a href="" class="btn btn-warning w-fit self-end text-white">Edit<i class="fa-solid fa-edit"></i></a>
                 </div>
             </div>
-            <div class="reservations border p-3 flex flex-col gap-3">
+            <div class="reservations border p-3 max-h-screen overflow-y-auto flex flex-col gap-3">
                 <p class="font-semibold">Daftar Reservasi</p>
+                @if (count($reservations) > 0)
+                    @foreach ($reservations as $key => $r)
+                        <div class="top flex items-center gap-3 border p-3">
+                            <p>{{$key+1}}. </p>
+                            <img src={{asset($r['image'])}} class="h-20 w-30">
+                            <div class="detail flex flex-col gap-2">
+                                <p class="font-bold">{{$r['type']}}</p>
+                                <p>Check in: {{ \Carbon\Carbon::parse($r['created_at'])->format('d M Y')}}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

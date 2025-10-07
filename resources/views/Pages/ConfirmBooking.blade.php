@@ -4,7 +4,7 @@
     <form method="post" action={{url('/booking/complete/'.$rooms['id'])}} class="flex flex-col bg-white drop-shadow-sm rounded-sm md:w-[60%] p-4 m-3 gap-4">
         @csrf
         <p class="font-bold md:text-xl text-center text-blue-900">{{$title}}</p>
-        <img src={{asset($rooms['image'])}} alt="" class="w-full h-100">
+        <img src={{asset($rooms['image'])}} alt="" class="w-full md:h-120">
         <div class="detail grid sm:grid-cols-2 gap-2">
             <div class="checkin flex flex-col text-center gap-2 w-full">
                 <p>Check-In:</p>

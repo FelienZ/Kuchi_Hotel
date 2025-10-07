@@ -15,7 +15,9 @@ class ReservationsModel extends Model
     protected $fillable = [
         'id' ,'user_id', 'room_id', 'durasi', 'sewa'
     ];
-
+    protected $casts = [
+        'created_at' => 'datetime'
+    ];
     public function showUser(){
         return $this->belongsTo(User::class, 'user_id');
     }
