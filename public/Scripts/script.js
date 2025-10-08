@@ -9,6 +9,7 @@ btnTrigger.addEventListener('click', ()=>{
     navSmall.classList.toggle('flex')
 })
 
+console.log('cek: ', sessionAlert)
 sessionAlert.length && parentElement ? sessionAlert.forEach(i=> {
     setTimeout(() => {
         parentElement.removeChild(i)

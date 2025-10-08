@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -33,17 +36,33 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
+    public function update(ProfileUpdateRequest $request, User $user): RedirectResponse
+    {   
+        //harus tembus rules updaterequestny dulu
         $request->user()->fill($request->validated());
+        $rules = [
+            'name' =>  [
+                'required','string', Rule::unique('users')->ignore(auth()->id())
+            ],
+            'email' => [
+                'required','email', Rule::unique('users')->ignore(auth()->id())
+            ]
+        ];
+        
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()){
+            return Redirect::route('profile.edit')->with('error', 'Gagal Update Profile');
+        }
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+        
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('success', 'Update Profile Berhasil');
     }
 
     /**
