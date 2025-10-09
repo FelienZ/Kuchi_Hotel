@@ -10,8 +10,8 @@
                     <p class="font-semibold">Your Email:</p>
                     <input type="email" disabled value={{$user['email']}} class="input disabled:text-neutral w-full disabled:bg-transparent">
                     <div class="flex self-end items-center gap-2">
-                        <label for="my_modal_7" class="btn btn-warning w-fit text-white">Edit Profile <i class="fa-solid fa-edit"></i></label>
-                        <label for="my_modal_8" class="btn btn-error w-fit text-white">Edit Password <i class="fa-solid fa-key"></i></label>
+                        <label for="modal_profile" class="btn btn-warning w-fit text-white">Edit Profile <i class="fa-solid fa-edit"></i></label>
+                        <label for="modal_password" class="btn btn-error w-fit text-white">Change Password <i class="fa-solid fa-key"></i></label>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                             <img src={{asset($r['image'])}} class="h-20 w-30">
                             <div class="detail flex flex-col gap-2">
                                 <p class="font-bold">{{$r['type']}}</p>
-                                <p>Check in: {{ \Carbon\Carbon::parse($r['created_at'])->format('d M Y')}}</p>
+                                <p>Dipesan pada: {{$date_detail[$key]}}</p>
                             </div>
                         </div>
                     @endforeach

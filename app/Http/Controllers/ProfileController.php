@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,13 +22,16 @@ class ProfileController extends Controller
     {
         $info = $request->user()->showReservations()->with('showRoom')->latest()->get()->toArray();
         $item = [];
+        $date_data = [];
         foreach($info as $key => $r):
             $item[$key] = $r['show_room'];
+            $date_data[$key] = Carbon::parse($r['created_at'])->format(' d M Y');
         endforeach;
         $data = [
             'title' => 'Profile Page',
             'user' => $request->user()->toArray(),
             'reservations' => $item,
+            'date_detail' => $date_data
         ];
         // dd($data['user']);
         return view('pages.profilepage', $data);
