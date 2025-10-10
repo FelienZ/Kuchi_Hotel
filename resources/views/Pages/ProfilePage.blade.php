@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div class="reservations drop-shadow-sm rounded-sm bg-white p-5 max-h-screen overflow-y-auto flex flex-col gap-3">
+            <div class="reservations drop-shadow-sm rounded-sm bg-white p-5 h-screen overflow-y-auto flex flex-col gap-3">
                 <p class="font-semibold lg:text-xl">Riwayat Reservasi</p>
                 @if (count($reservations) > 0)
                     @foreach ($reservations as $key => $r)
@@ -25,9 +25,14 @@
                             <div class="detail flex flex-col gap-2">
                                 <p class="font-bold">{{$r['type']}}</p>
                                 <p>Dipesan pada: {{$date_detail[$key]}}</p>
+                                <p>Reservasi: {{ $duration[$key] }} malam</p>
                             </div>
                         </div>
                     @endforeach
+                @else
+                        <div class="empty flex flex-col justify-center h-screen">
+                            <p class="text-center">Belum Ada Pemesanan!</p>
+                        </div>
                 @endif
             </div>
         </div>

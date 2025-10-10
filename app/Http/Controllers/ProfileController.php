@@ -23,17 +23,19 @@ class ProfileController extends Controller
         $info = $request->user()->showReservations()->with('showRoom')->latest()->get()->toArray();
         $item = [];
         $date_data = [];
+        $durasi = [];
         foreach($info as $key => $r):
             $item[$key] = $r['show_room'];
             $date_data[$key] = Carbon::parse($r['created_at'])->format(' d M Y');
+            $durasi[$key] = $r['durasi'];
         endforeach;
         $data = [
             'title' => 'Profile Page',
             'user' => $request->user()->toArray(),
             'reservations' => $item,
-            'date_detail' => $date_data
+            'date_detail' => $date_data,
+            'duration' => $durasi
         ];
-        // dd($data['user']);
         return view('pages.profilepage', $data);
     }
 

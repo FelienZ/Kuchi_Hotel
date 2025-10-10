@@ -9,8 +9,10 @@ class RoomsController extends Controller
 {
     //
     public function Rooms(){
+        $rooms_data = RoomsModel::all()->toArray();
+        //Check Status - Stock -> ini di Booking?
         $data = [
-            'rooms' => RoomsModel::all(),
+            'rooms' => $rooms_data,
             'title' => 'Rooms Page'
         ];
         return view('pages.roomspage', $data);

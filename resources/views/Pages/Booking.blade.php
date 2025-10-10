@@ -1,9 +1,9 @@
 @extends('layout.template')
 @section('content')
 <section id="parentElement" class="min-h-screen place-content-center place-items-center">
-    <form action={{url('booking/confirm/'.$rooms['id'])}} class="flex flex-col bg-white drop-shadow-sm rounded-sm p-4 md:w-[60%] gap-4 m-5">
+    <form action={{url('booking/confirm/'.$rooms['id'])}} class="flex flex-col bg-white drop-shadow-sm rounded-sm p-4 lg:w-[50%] md:w-[60%] gap-4 m-5">
         @csrf
-        <img src={{asset($rooms['image'])}} alt="gambar-{{$rooms['type']}}" class="w-full h-110">
+        <img src={{asset($rooms['image'])}} alt="gambar-{{$rooms['type']}}" class="w-full h-100">
         <div class="flex items-center justify-between">
             <div class="flex flex-col gap-3">
                 <p class="font-bold sm:text-xl text-blue-900">{{$rooms['type']}}</p>
@@ -16,11 +16,11 @@
             <div class="flex max-sm:grid items-center gap-5 w-full">
                 <div class="check-in flex flex-col gap-2 w-full">
                     <p>check-in: </p>
-                    <input type="date" name="cekin" value="{{old('cekin')}}" class="input bg-blue-900 w-full text-white">
+                    <input type="date" name="cekin" value="{{old('cekin')}}" class="input border-none justify-center bg-blue-900 w-full text-white">
                 </div>
                 <div class="check-out flex flex-col gap-2 w-full">
                     <p>check-out: </p>
-                    <input type="date" name="cekout" value="{{old('cekout')}}" class="input bg-blue-900 w-full text-white">
+                    <input type="date" name="cekout" value="{{old('cekout')}}" class="input border-none justify-center bg-blue-900 w-full text-white">
                 </div>
                 <div class="type flex flex-col gap-2 w-full">
                     <p>Tipe: </p>
