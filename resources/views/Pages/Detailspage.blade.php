@@ -7,7 +7,7 @@
                 <img src={{ asset($info['image'] )}} alt="" class="size-full">
                 <div class="information bg-white drop-shadow-sm p-4 justify-center items-center flex flex-col gap-5">
                     <p class="font-light text-2xl text-blue-900">{{ $info['type'] }}</p>
-                    <span class="flex items-center gap-2">Status: <p class="badge badge-outline <?=$info['status'] == 'available' ? 'badge-success' : 'badge-error'?>">{{ $info['status'] }}</p></span>
+                    <span class="flex items-center gap-2">Status: <p class="badge badge-outline <?=$info['status'] == 'available' ? 'badge-success' : 'badge-error'?>">{{ $info['status'] == 'available' ? 'available' : 'unavailable'}}</p></span>
                     <div class="flex items-center gap-3">
                         <p>Reservasi: </p>
                         <p>Rp. {{ $info['price'] }}/malam</p>

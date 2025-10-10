@@ -11,6 +11,15 @@ class RoomsController extends Controller
     public function Rooms(){
         $rooms_data = RoomsModel::all()->toArray();
         //Check Status - Stock -> ini di Booking?
+        foreach($rooms_data as &$check):
+        //aduhay aneh kali loopingnya
+            if($check['stock'] == 0){
+                $check['status'] = 'none';
+                RoomsModel::where('stock', 0)->update(['status' => 'none']);
+            }
+        endforeach;
+        //unset? lepas reference & -> mis. untuk looping lain
+        // unset($rooms_data);
         $data = [
             'rooms' => $rooms_data,
             'title' => 'Rooms Page'

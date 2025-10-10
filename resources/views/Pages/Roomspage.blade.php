@@ -13,7 +13,7 @@
                  <a href={{url('/rooms/details/'.$r['id'])}} class="text-blue-800 text-xl max-sm:text-lg font-light h-12 self-center">{{ $r['type'] }}</a>
                 <div class="flex max-sm:flex-col gap-3 items-center justify-between">
                     <p class="text-blue-800 text-xl max-sm:text-sm text-nowrap">Rp. {{ $r['price']}}</p>
-                    <p class="badge badge-outline badge-success max-sm:text-sm">{{ $r['status'] }}</p>
+                    <p class="badge badge-outline max-sm:text-sm <?= $r['status'] == 'available' ? 'badge-success' : 'badge-error' ?> ">{{ $r['status'] == 'available' ? 'available' : 'unavailable' }}</p>
                 </div>
                 <a href={{url('/booking/create/'.$r['id'])}} class="btn bg-blue-800 border-none font-medium">Check-In Now !</a>
             </div>
