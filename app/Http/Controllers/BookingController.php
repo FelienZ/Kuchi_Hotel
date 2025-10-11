@@ -79,8 +79,8 @@ class BookingController extends Controller
         if($data['sewa'] != ($matchRoom['price'] * $data['durasi'])){
             return back()->withInput()->with('message', 'Data Invalid!');
         }
-        $matchRoom['stock'] -= 1;
         if($matchRoom['stock'] > 0){
+            $matchRoom['stock'] -= 1;
             RoomsModel::findOrFail($id)->update($matchRoom);
             ReservationsModel::create($data);
             return redirect()->to('/')->with('success', 'Selamat Anda Berhasil Memesan!');
