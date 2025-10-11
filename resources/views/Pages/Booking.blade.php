@@ -10,7 +10,8 @@
                 <p class="text-sm">Rp. {{$rooms['price']}}/night</p>
                 <p class="text-sm badge badge-outline {{$rooms['status'] == 'available' ? 'badge-success' : 'badge-error'}}">{{$rooms['status'] == 'available' ? 'available' : 'unavailable'}}</p>
             </div>
-            <button type="submit" class="btn border-none bg-blue-900 rounded-full">Book Now</button>
+            <button type="submit" @if($rooms['status'] == 'none')
+            disabled @endif class="btn border-none bg-blue-900 rounded-full">Book Now</button>
         </div>
         <div class="order flex max-sm:flex-col justify-center items-center bg-white drop-shadow-sm rounded-sm p-4 w-full">
             <div class="flex max-sm:grid items-center gap-5 w-full">

@@ -13,10 +13,8 @@ class RoomsController extends Controller
         //Check Status - Stock -> ini di Booking?
         foreach($rooms_data as &$check):
         //aduhay aneh kali loopingnya
-            if($check['stock'] == 0){
-                $check['status'] = 'none';
-                RoomsModel::where('stock', 0)->update(['status' => 'none']);
-            }
+            RoomsModel::where('stock', 0)->update(['status' => 'none']);
+            RoomsModel::where('stock', '>', 0)->update(['status' => 'available']);
         endforeach;
         //unset? lepas reference & -> mis. untuk looping lain
         // unset($rooms_data);
