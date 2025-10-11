@@ -7,7 +7,7 @@
         <div class="flex items-center justify-between">
             <div class="flex flex-col gap-3">
                 <p class="font-bold sm:text-xl text-blue-900">{{$rooms['type']}}</p>
-                <p class="text-sm">Rp. {{$rooms['price']}}/night</p>
+                <p id="price" class="text-sm">{{$rooms['price']}}</p>
                 <p class="text-sm badge badge-outline {{$rooms['status'] == 'available' ? 'badge-success' : 'badge-error'}}">{{$rooms['status'] == 'available' ? 'available' : 'unavailable'}}</p>
             </div>
             <button type="submit" @if($rooms['status'] == 'none')

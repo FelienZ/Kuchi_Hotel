@@ -22,8 +22,8 @@
                 <p>Reservasi: {{$durasi}} Malam</p>
             </div>
             <div class="flex flex-col gap-2 items-end">
-                <p>Rp. {{$rooms['price']}}/malam</p>
-                <p>Total: Rp. {{$price}}</p>
+                <p id="price">{{$rooms['price']}}</p>
+                <p id="totalPrice">{{$price}}</p>
                 <input type="hidden" name="price" value="{{$price}}">
             </div>
         </div>
