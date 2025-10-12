@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\RoomStock;
 use App\Models\RoomsModel;
 use Illuminate\Http\Request;
 
@@ -9,13 +10,9 @@ class RoomsController extends Controller
 {
     //
     public function Rooms(){
+        RoomStock::stockChecker(); #Update Stock kalau habis
         $rooms_data = RoomsModel::all()->toArray();
         //Check Status - Stock -> ini di Booking?
-        foreach($rooms_data as &$check):
-        //aduhay aneh kali loopingnya
-            RoomsModel::where('stock', 0)->update(['status' => 'none']);
-            RoomsModel::where('stock', '>', 0)->update(['status' => 'available']);
-        endforeach;
         //unset? lepas reference & -> mis. untuk looping lain
         // unset($rooms_data);
         $data = [

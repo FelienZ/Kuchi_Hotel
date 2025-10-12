@@ -13,7 +13,7 @@
                 </div>
                 <div class="flex flex-col gap-2">
                     <p>Berlaku Hingga: {{ $end }}</p>
-                    <div class="badge badge-outline badge-success">Dalam Pemesanan</div>
+                    <div class="badge badge-outline <?= $reservation['status'] == 'active' ? 'badge-success' : 'badge-error' ?>"><?= $reservation['status'] == 'active' ? 'Dalam Reservasi' : 'Out of Date' ?></div>
                 </div>
             </div>
         </div>

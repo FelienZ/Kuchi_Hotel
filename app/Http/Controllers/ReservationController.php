@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ReservationStatus;
 use App\Models\ReservationsModel;
 use App\Models\User;
 use Carbon\Carbon;
@@ -11,6 +12,7 @@ class ReservationController extends Controller
 {
     //
     public function Detail($id, Request $request){
+        ReservationStatus::statusUpdater();
         $info = $request->user()->showReservations()->with('showRoom')->latest()->find($id)->toArray();
         $rooms = [];
         foreach($info['show_room'] as $key => &$i):
@@ -19,9 +21,9 @@ class ReservationController extends Controller
         $data = [
             'title' => 'Reservasi - '.$rooms['type'],
             'room' => $rooms,
-            'reservasi' => $info,
+            'reservation' => $info,
             'guest' => User::find($info['user_id']),
-            'end' => Carbon::parse($info['created_at'])->addDays($info['durasi'])->format('d M Y')
+            'end' => Carbon::parse($info['checkout_limit'])->format('d M Y')
         ];
         return view('pages.reservations.reservationinfo', $data);
     }

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->integer('durasi');
             $table->decimal('sewa', 10,2);
+            //tambahkan status pemesanan
+            $table->enum('status', ['active', 'expired'])->default('active');
             $table->timestamps();
         });
     }

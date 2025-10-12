@@ -71,6 +71,7 @@ class BookingController extends Controller
             'room_id' => $id,
             'user_id' => Auth::id(),
             'durasi' => Carbon::parse($request->input('cekin'))->diffInDays(Carbon::parse($request->input(key: 'cekout'))),
+            'checkout_limit' => Carbon::parse($request->input(key: 'cekout')),
             'sewa' => $request->input('price')
         ];
         if($data['durasi'] < 1){
