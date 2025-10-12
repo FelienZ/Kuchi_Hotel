@@ -19,7 +19,7 @@ class BookingController extends Controller
             'title' => 'Booking - '.$item['type'],
             'rooms' => $item
         ];
-        return view('pages.booking', $data);
+        return view('pages.booking.booking', $data);
     }
     public function matchData(Request $request){
         $data = [
@@ -43,7 +43,7 @@ class BookingController extends Controller
         if($item['durasi'] < 1){
              return back()->withInput()->with('message', 'Reservasi Minimal 1 x 24 Jam');
         }
-        return view('pages.confirmBooking', $item);
+        return view('pages.booking.confirmBooking', $item);
     }
     public function confirm($id, Request $request){
         $item = RoomsModel::find($id )->toArray();
@@ -62,7 +62,7 @@ class BookingController extends Controller
         if($data['durasi'] < 1){
             return back()->withInput()->with('message', 'Reservasi minimal 1 x 24 Jam');
         }
-        return view('pages.confirmBooking', $data);
+        return view('pages.booking.confirmBooking', $data);
     }
     public function postReservation($id, Request $request){
         $matchRoom = RoomsModel::find($id)->toArray();

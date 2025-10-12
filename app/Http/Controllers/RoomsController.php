@@ -22,7 +22,7 @@ class RoomsController extends Controller
             'rooms' => $rooms_data,
             'title' => 'Rooms Page'
         ];
-        return view('pages.roomspage', $data);
+        return view('pages.rooms.roomspage', $data);
     }
     public function RoomDetails($id){
         $room = RoomsModel::find($id)->toArray();
@@ -31,6 +31,6 @@ class RoomsController extends Controller
             'info' => $room
         ];
         //detail udah di decode lewat cast model
-        return view('pages.detailspage', $data);
+        return view('pages.rooms.detailspage', $data);
     }
 }

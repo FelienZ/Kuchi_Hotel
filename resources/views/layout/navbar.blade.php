@@ -14,8 +14,19 @@
         <li><a href="{{url('/rooms') }}">Rooms</a></li>
         <li><a href="{{url('/services')}}">Services</a></li>
         <li class="flex items-center gap-3">
-            <a href="{{url('login')}}" class="badge badge-outline">Login</a>
-            <a href="{{url('register')}}" class="badge badge-outline">Register</a>
+            @auth
+            <form action={{url('/logout')}} method="post" class="flex gap-2 items-center">
+                @csrf
+                <a href={{url('profile')}} class="flex items-center bg-blue-900 btn border-none text-white rounded-full"><i class="fa-solid fa-user"></i>Profile</a>
+                <x-primary-button> {{ __('Logout') }} <i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> </x-primary-button>
+            </form>
+            @endauth
+            @guest
+            <form action={{url('/login')}}>
+                @csrf
+                <x-primary-button> {{ __('Login') }} <i class="fa-solid fa-arrow-right-from-bracket"></i> </x-primary-button>
+            </form>
+            @endguest
         </li>
     </ul>
     @auth

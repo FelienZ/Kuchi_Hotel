@@ -13,7 +13,7 @@ class ServicesController extends Controller
             'title' => 'Services Page',
             'facilities' => ServicesModel::all()->toArray()
         ];
-        return view('pages.servicespage', $data);
+        return view('pages.services.servicespage', $data);
     }
 
     public function ServicesDetail($id){
@@ -22,6 +22,6 @@ class ServicesController extends Controller
             'title' => 'Services - '.$item['title'],
             'facility' => $item
         ];
-        return view('pages.servicesdetailpage', $data);
+        return view('pages.services.servicesdetailpage', $data);
     }
 }

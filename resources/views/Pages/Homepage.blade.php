@@ -7,7 +7,7 @@
                 <div class="image2 flex flex-col justify-end text-white gap-3 rounded-sm bg-white p-3 drop-shadow-md" style="background: url('{{ asset('images/pool.jpg') }}')  center center / cover no-repeat;">
                     <div class="text shadow-lg ">
                         <p class="font-bold drop-shadow-sm">Welcome to Kuchi Hotel!</p>
-                        <p class="drop-shadow-sm">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <p class="drop-shadow-sm max-sm:text-xs">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     <div class="content grid sm:grid-cols-2 gap-2">
                         <div class="location flex items-center gap-4">
                             <i class="fa-solid fa-location-dot text-blue-900 text-2xl"></i>
-                            <p class="text-sm">Jl. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, quasi.</p>
+                            <p class="text-sm max-sm:text-xs">Jl. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, quasi.</p>
                         </div>
                         <div class="info flex flex-col gap-3 p-4 bg-white drop-shadow-sm overflow-auto">
                             <div class="phone flex items-center justify-between w-full">

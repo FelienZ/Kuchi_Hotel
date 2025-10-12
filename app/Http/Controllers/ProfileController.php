@@ -29,12 +29,14 @@ class ProfileController extends Controller
             $date_data[$key] = Carbon::parse($r['created_at'])->format(' d M Y');
             $durasi[$key] = $r['durasi'];
         endforeach;
+        // dd($info);
         $data = [
             'title' => 'Profile Page',
             'user' => $request->user()->toArray(),
-            'reservations' => $item,
+            'reservations' => $info,
             'date_detail' => $date_data,
-            'duration' => $durasi
+            'duration' => $durasi,
+            'info' => $item
         ];
         return view('pages.profilepage', $data);
     }

@@ -9,7 +9,7 @@
                     <input type="text" disabled value={{$user['name']}} class="input disabled:text-neutral w-full disabled:bg-transparent">
                     <p class="font-semibold">Your Email:</p>
                     <input type="email" disabled value={{$user['email']}} class="input disabled:text-neutral w-full disabled:bg-transparent">
-                    <div class="grid grid-cols-2 self-end items-center gap-2">
+                    <div class="grid grid-cols-2 self-end items-center gap-2 mt-5">
                         <label for="modal_profile" class="btn max-sm:text-[12px] btn-warning text-white">Edit Profile <i class="fa-solid fa-edit"></i></label>
                         <label for="modal_password" class="btn max-sm:text-[12px] btn-error text-white">Change Password <i class="fa-solid fa-key"></i></label>
                     </div>
@@ -17,9 +17,9 @@
             </div>
             <div class="reservations drop-shadow-sm rounded-sm bg-white p-5 h-screen overflow-y-auto flex flex-col gap-3">
                 <p class="font-semibold lg:text-xl">Riwayat Reservasi</p>
-                @if (count($reservations) > 0)
-                    @foreach ($reservations as $key => $r)
-                        <div class="top bg-white drop-shadow-sm rounded-sm grid md:flex place-items-center max-md:text-center gap-3 p-3">
+                @if (count($info) > 0)
+                    @foreach ($info as $key => $r)
+                        <a href={{ url('reservations/'.$reservations[$key]['id']) }} class="top bg-white drop-shadow-sm rounded-sm grid md:flex place-items-center max-md:text-center gap-3 p-3">
                             <p>{{$key+1}}. </p>
                             <img src={{asset($r['image'])}} class="h-20 w-30">
                             <div class="detail flex flex-col gap-2">
@@ -27,7 +27,7 @@
                                 <p>Dipesan pada: {{$date_detail[$key]}}</p>
                                 <p>Reservasi: {{ $duration[$key] }} malam</p>
                             </div>
-                        </div>
+                        </a>
                     @endforeach
                 @else
                         <div class="empty flex flex-col justify-center h-screen">

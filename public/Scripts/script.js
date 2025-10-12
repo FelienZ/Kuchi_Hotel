@@ -12,7 +12,6 @@ price ? (
         i.innerHTML = (newPrice.toLocaleString('id-ID', {style:'currency', currency: 'IDR'})) + '/day'
     })
 ) : '';
-console.log(priceTotal.textContent)
 priceTotal ? (
     priceTotal.innerHTML = 'Total: ' + parseFloat(priceTotal.textContent).toLocaleString('id-ID', {style:'currency', currency: 'IDR'})
 ) : ''
@@ -22,7 +21,6 @@ btnTrigger.addEventListener('click', ()=>{
     navSmall.classList.toggle('flex')
 })
 
-console.log('cek: ', sessionAlert)
 sessionAlert.length && parentElement ? sessionAlert.forEach(i=> {
     setTimeout(() => {
         parentElement.removeChild(i)
