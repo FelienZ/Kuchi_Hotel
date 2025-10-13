@@ -32,8 +32,8 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-between mt-4">
-            <a class="btn bg-blue-900/50 text-white border-none rounded-full" href={{route('register')}}>
+        <div class="flex max-sm:flex-col items-center max-sm:gap-3 justify-between mt-4">
+            <a class="btn bg-blue-900/50 max-sm:order-1 max-sm:w-full text-white border-none rounded-full" href={{route('register')}}>
                     {{ __('Register') }}
             </a>
 
@@ -43,7 +43,7 @@
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
+            <x-primary-button class="max-sm:w-full max-sm:order-2">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>

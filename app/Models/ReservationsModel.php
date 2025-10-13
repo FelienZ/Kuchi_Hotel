@@ -13,7 +13,7 @@ class ReservationsModel extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
     protected $fillable = [
-        'id' ,'user_id', 'room_id', 'durasi', 'sewa', 'checkout_limit'
+        'id' ,'user_id', 'room_id', 'durasi', 'sewa', 'checkout_limit', 'status'
     ];
     protected $casts = [
         'created_at' => 'datetime'
