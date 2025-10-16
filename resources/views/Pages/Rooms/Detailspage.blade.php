@@ -10,7 +10,7 @@
                     <span class="flex items-center gap-2">Status: <p class="badge badge-outline <?=$info['status'] == 'available' ? 'badge-success' : 'badge-error'?>">{{ $info['status'] == 'available' ? 'available' : 'unavailable'}}</p></span>
                     <div class="flex items-center gap-3">
                         <p>Reservasi: </p>
-                        <p>Rp. {{ $info['price'] }}/malam</p>
+                        <p id="price">{{ $info['price'] }}</p>
                     </div>
                     <a href={{url('booking/create/'.$info['id'])}} class="btn border-none bg-blue-900 text-white">Pesan Sekarang!</a>
                 </div>

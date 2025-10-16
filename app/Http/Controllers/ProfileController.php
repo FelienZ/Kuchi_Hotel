@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\RoomStock;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\User;
 use Carbon\Carbon;
@@ -24,6 +25,7 @@ class ProfileController extends Controller
         $item = [];
         $date_data = [];
         $durasi = [];
+        RoomStock::stockChecker();
         foreach($info as $key => $r):
             $item[$key] = $r['show_room'];
             $date_data[$key] = Carbon::parse($r['created_at'])->format(' d M Y');
