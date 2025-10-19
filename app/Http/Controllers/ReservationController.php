@@ -27,4 +27,12 @@ class ReservationController extends Controller
         ];
         return view('pages.reservations.reservationinfo', $data);
     }
+    public function deleteHistory($id, Request $request){
+        $info = $request->user()->showReservations()->with('showRoom')->latest()->find($id)->toArray();
+        if($info['status'] == 'active'){
+            return redirect()->to('/profile')->with('error', 'Gagal Menghapus Riwayat');
+        }
+        ReservationsModel::where('id', '=', $id)->delete();
+        return redirect()->to('/profile')->with('success', 'Berhasil Menghapus Riwayat');
+    }
 }

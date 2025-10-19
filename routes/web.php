@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function(){
     });
     Route::prefix('reservations')->group(function(){
         Route::get('/{id}', [ReservationController::class, 'Detail']);
+        Route::get('/delete/{id}', [ReservationController::class, 'deleteHistory']);
     });
 });
 
